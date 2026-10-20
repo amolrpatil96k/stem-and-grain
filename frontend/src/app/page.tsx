@@ -70,7 +70,7 @@ export default function Home() {
 
   return (
     <div
-      className={`relative min-h-screen w-full overflow-hidden select-none transition-colors duration-700 flex flex-col justify-between ${
+      className={`relative min-h-screen w-full overflow-x-hidden transition-colors duration-700 flex flex-col justify-between ${
         isDark ? "bg-[#090b10] text-slate-100" : "bg-[#f8fafc] text-slate-900"
       }`}
     >
@@ -90,9 +90,9 @@ export default function Home() {
       {/* ======================================================================= */}
       {/* TOP HEADER: BRAND STATUS & THEME SWITCHER                              */}
       {/* ======================================================================= */}
-      <header className="relative z-20 w-full px-6 sm:px-12 md:px-16 pt-8 pb-4 flex items-center justify-between">
+      <header className="relative z-20 w-full px-4 sm:px-12 md:px-16 pt-5 sm:pt-8 pb-3 sm:pb-4 flex items-center justify-between">
         {/* Subtle Brand Tag */}
-        <div className="flex items-center space-x-2.5">
+        <div className="flex items-center space-x-2 sm:space-x-2.5">
           <span className="w-2 h-2 rounded-full bg-amber-500 animate-ping" />
           <span
             className={`text-xs font-logo tracking-widest uppercase font-semibold ${
@@ -118,7 +118,7 @@ export default function Home() {
             onClick={() => setIsDark(!isDark)}
             title={isDark ? "Switch to Light Mode" : "Switch to Dark Mode"}
             aria-label="Toggle Theme"
-            className={`group flex items-center space-x-2 px-4 py-2 rounded-full border text-xs font-logo tracking-widest uppercase transition-all duration-300 cursor-pointer ${
+            className={`group flex items-center space-x-1.5 sm:space-x-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full border text-[11px] sm:text-xs font-logo tracking-widest uppercase transition-all duration-300 cursor-pointer ${
               isDark
                 ? "bg-white/[0.05] border-white/20 text-slate-300 hover:bg-white/10 hover:border-amber-400/60 hover:text-white"
                 : "bg-white border-slate-200 text-slate-700 hover:bg-slate-50 hover:border-slate-400 hover:text-slate-900 shadow-sm"
@@ -142,9 +142,9 @@ export default function Home() {
       {/* ======================================================================= */}
       {/* MAIN VIEW: MASSIVE LOGO & "UNDER CONSTRUCTION" HERO                    */}
       {/* ======================================================================= */}
-      <main className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-8 flex-1 flex flex-col items-center justify-center text-center -mt-2 sm:-mt-4 pb-4">
+      <main className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-8 flex-1 flex flex-col items-center justify-center text-center py-3 sm:py-6">
         {/* 1. HUGE PROMINENT BRAND LOGO WITH SMOOTH 3D TILT */}
-        <div className="w-full flex items-center justify-center mt-5 sm:mt-8 mb-1.5 sm:mb-2 transition-transform duration-500">
+        <div className="w-full flex items-center justify-center mt-2 sm:mt-6 mb-1.5 sm:mb-2 transition-transform duration-500">
           <AnimatedLogo
             isDark={isDark}
             size="massive"
@@ -154,7 +154,7 @@ export default function Home() {
         </div>
 
         {/* 2. REFINED LUXURY DIVIDER WITH GOLD ACCENT */}
-        <div className="flex items-center justify-center space-x-4 my-1.5 sm:my-2 w-full max-w-xs sm:max-w-md mx-auto">
+        <div className="flex items-center justify-center space-x-3 sm:space-x-4 my-1.5 sm:my-2 w-full max-w-[200px] sm:max-w-md mx-auto">
           <div
             className={`h-[1px] flex-1 ${
               isDark
@@ -179,10 +179,10 @@ export default function Home() {
         </div>
 
         {/* 3. HERO CONTENT SECTION (CLEAN, SOBER & PROFESSIONAL) */}
-        <div className="max-w-4xl mx-auto px-4 flex flex-col items-center text-center mt-3 sm:mt-5 mb-5 sm:mb-6">
+        <div className="w-full max-w-4xl mx-auto px-2 sm:px-4 flex flex-col items-center text-center mt-2 sm:mt-4 mb-4 sm:mb-6">
           {/* Paragraph 1: Headline / Core Vision */}
           <h1
-            className={`text-lg sm:text-xl md:text-2xl lg:text-[1.75rem] font-bold tracking-tight leading-relaxed transition-colors duration-500 mb-5 max-w-4xl mx-auto ${
+            className={`text-[17px] xs:text-lg sm:text-xl md:text-2xl lg:text-[1.75rem] font-bold tracking-tight leading-snug sm:leading-relaxed transition-colors duration-500 mb-3.5 sm:mb-5 max-w-4xl mx-auto ${
               isDark
                 ? "text-slate-100 drop-shadow-[0_4px_30px_rgba(255,255,255,0.08)]"
                 : "text-slate-900"
@@ -200,12 +200,12 @@ export default function Home() {
               >
                 Agri, Dairy and Aqua
               </span>{" "}
-              sectors are on the way.
+              <span className="inline-block sm:inline">sectors are on the way.</span>
             </span>
           </h1>
 
           {/* 3 Interactive High-Tech Sector Pillars (Agri, Dairy, Aqua) */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 w-full max-w-3xl my-2 mb-5">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4 w-full max-w-3xl my-1.5 sm:my-2 mb-3.5 sm:mb-5">
             {sectors.map((sector, idx) => {
               const Icon = sector.icon;
               const isActive = activeSector === idx;
@@ -217,13 +217,13 @@ export default function Home() {
                     try { soundEngine.playClick("click"); } catch {}
                   }}
                   onMouseLeave={() => setActiveSector(null)}
-                  className={`group relative p-3.5 sm:p-4 rounded-xl border text-left transition-all duration-300 cursor-default backdrop-blur-md ${
+                  className={`group relative p-3 sm:p-4 rounded-xl border text-left transition-all duration-300 cursor-default backdrop-blur-md ${
                     isDark
                       ? `bg-white/[0.03] ${sector.borderDark} ${isActive ? "bg-white/[0.06] shadow-[0_0_25px_rgba(245,158,11,0.12)] scale-[1.01]" : "border-white/10"}`
                       : `bg-white/80 ${sector.borderLight} ${isActive ? "bg-white shadow-md scale-[1.01]" : "border-slate-200/90"}`
                   }`}
                 >
-                  <div className="flex items-center space-x-2.5 mb-1.5">
+                  <div className="flex items-center space-x-2.5 mb-1 sm:mb-1.5">
                     <div
                       className={`p-1.5 rounded-lg border ${
                         isDark ? "bg-white/[0.05] border-white/10" : "bg-slate-100/80 border-slate-200"
@@ -252,30 +252,30 @@ export default function Home() {
           </div>
 
           {/* Paragraph 2: Launch Announcement (Clean text, no stars) */}
-          <div className="flex items-center justify-center space-x-3 my-3 mb-5">
-            <div className={`h-[1px] w-8 sm:w-14 ${isDark ? "bg-amber-400/25" : "bg-slate-300"}`} />
+          <div className="flex items-center justify-center space-x-2.5 sm:space-x-3 my-2 sm:my-3 mb-3 sm:mb-5">
+            <div className={`h-[1px] w-6 sm:w-14 ${isDark ? "bg-amber-400/25" : "bg-slate-300"}`} />
             <p
-              className={`text-xs sm:text-sm font-logo uppercase tracking-[0.22em] font-semibold transition-colors duration-500 ${
+              className={`text-[11px] xs:text-xs sm:text-sm font-logo uppercase tracking-[0.14em] sm:tracking-[0.22em] font-semibold transition-colors duration-500 ${
                 isDark ? "text-amber-300/90" : "text-amber-700/90"
               }`}
             >
               Our brand new website is launching shortly.
             </p>
-            <div className={`h-[1px] w-8 sm:w-14 ${isDark ? "bg-amber-400/25" : "bg-slate-300"}`} />
+            <div className={`h-[1px] w-6 sm:w-14 ${isDark ? "bg-amber-400/25" : "bg-slate-300"}`} />
           </div>
 
           {/* Paragraph 3: Sober, Executive Notification & Contact Card (No input field) */}
           <div
-            className={`w-full max-w-2xl mx-auto px-5 py-4 sm:px-6 sm:py-4.5 rounded-2xl border transition-all duration-300 backdrop-blur-xl ${
+            className={`w-full max-w-2xl mx-auto px-4 py-3 sm:px-6 sm:py-4.5 rounded-2xl border transition-all duration-300 backdrop-blur-xl ${
               isDark
                 ? "bg-white/[0.03] border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.4)] hover:border-amber-400/30"
                 : "bg-white/80 border-slate-200/90 shadow-sm hover:border-slate-300"
             }`}
           >
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-              <div className="flex items-start space-x-3 text-left">
+            <div className="flex flex-col sm:flex-row items-center sm:items-start justify-between gap-3 sm:gap-4 text-center sm:text-left">
+              <div className="flex flex-col sm:flex-row items-center sm:items-start space-y-2 sm:space-y-0 sm:space-x-3 text-center sm:text-left">
                 <div
-                  className={`p-2.5 rounded-xl border flex-shrink-0 mt-0.5 ${
+                  className={`p-2 sm:p-2.5 rounded-xl border flex-shrink-0 ${
                     isDark
                       ? "bg-amber-400/10 border-amber-400/20 text-amber-400"
                       : "bg-amber-50 border-amber-200 text-amber-700"
@@ -299,7 +299,7 @@ export default function Home() {
                     Drop your email at{" "}
                     <a
                       href="mailto:contact@steamandgrain.tech"
-                      className={`font-semibold underline underline-offset-2 transition-colors ${
+                      className={`font-semibold underline underline-offset-2 break-all transition-colors ${
                         isDark
                           ? "text-amber-400 hover:text-amber-300"
                           : "text-amber-700 hover:text-amber-800"
@@ -316,7 +316,7 @@ export default function Home() {
               <button
                 type="button"
                 onClick={handleCopyEmail}
-                className={`flex items-center space-x-1.5 px-3.5 py-2 rounded-xl border text-xs font-medium transition-all duration-200 cursor-pointer flex-shrink-0 ${
+                className={`w-full sm:w-auto justify-center flex items-center space-x-1.5 px-4 py-2 rounded-xl border text-xs font-medium transition-all duration-200 cursor-pointer flex-shrink-0 ${
                   copied
                     ? "bg-emerald-500/15 border-emerald-500/30 text-emerald-600 dark:text-emerald-400 shadow-sm"
                     : isDark
@@ -342,7 +342,7 @@ export default function Home() {
 
         {/* 4. LUXURY STATUS PILL BADGE */}
         <div
-          className={`inline-flex items-center justify-center space-x-2.5 px-6 py-2 rounded-full border text-xs font-logo tracking-widest uppercase transition-all duration-300 mx-auto ${
+          className={`inline-flex items-center justify-center space-x-2 px-4 sm:px-6 py-1.5 sm:py-2 rounded-full border text-[11px] sm:text-xs font-logo tracking-widest uppercase transition-all duration-300 mx-auto mt-2 sm:mt-0 ${
             isDark
               ? "bg-white/[0.04] border-amber-500/30 text-amber-300 shadow-[0_0_20px_rgba(245,158,11,0.15)]"
               : "bg-white/80 border-slate-200 text-slate-800 shadow-sm backdrop-blur-sm"
@@ -356,7 +356,7 @@ export default function Home() {
       {/* ======================================================================= */}
       {/* FOOTER: MINIMALIST BRANDING & TECH GRID                                */}
       {/* ======================================================================= */}
-      <footer className="relative z-20 w-full px-6 sm:px-12 md:px-16 pb-8 pt-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+      <footer className="relative z-20 w-full px-4 sm:px-12 md:px-16 pb-6 pt-3 sm:pb-8 sm:pt-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-center sm:text-left">
         {/* Brand Copyright */}
         <div
           className={`font-logo tracking-widest uppercase ${
