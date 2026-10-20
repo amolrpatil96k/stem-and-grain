@@ -342,7 +342,7 @@ export default function Home() {
 
         {/* 4. LUXURY STATUS PILL BADGE */}
         <div
-          className={`inline-flex items-center justify-center space-x-2 px-4 sm:px-6 py-1.5 sm:py-2 rounded-full border text-[11px] sm:text-xs font-logo tracking-widest uppercase transition-all duration-300 mx-auto mt-2 sm:mt-0 ${
+          className={`inline-flex items-center justify-center space-x-2 px-4 sm:px-6 py-1.5 sm:py-2 rounded-full border text-[11px] sm:text-xs font-logo tracking-widest uppercase transition-all duration-300 mx-auto mt-3 sm:mt-0 mb-4 sm:mb-2 ${
             isDark
               ? "bg-white/[0.04] border-amber-500/30 text-amber-300 shadow-[0_0_20px_rgba(245,158,11,0.15)]"
               : "bg-white/80 border-slate-200 text-slate-800 shadow-sm backdrop-blur-sm"
@@ -356,7 +356,7 @@ export default function Home() {
       {/* ======================================================================= */}
       {/* FOOTER: MINIMALIST BRANDING & TECH GRID                                */}
       {/* ======================================================================= */}
-      <footer className="relative z-20 w-full px-4 sm:px-12 md:px-16 pb-6 pt-3 sm:pb-8 sm:pt-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-center sm:text-left">
+      <footer className="relative z-20 w-full px-4 sm:px-12 md:px-16 pb-12 sm:pb-8 pt-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-center sm:text-left">
         {/* Brand Copyright */}
         <div
           className={`font-logo tracking-widest uppercase ${
